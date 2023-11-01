@@ -1,12 +1,12 @@
 package org.launchcode.techjobs.persistent.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Skill extends AbstractEntity {
 
+    @NotBlank
     private String description;
 
     public Skill(String description) {
