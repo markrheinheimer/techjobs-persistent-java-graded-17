@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,26 +14,20 @@ public class Skill extends AbstractEntity {
     private String description;
 
     @ManyToMany(mappedBy = "skills")
-    private List<Job> jobs;
+    private final List<Job> jobs = new ArrayList<>();
 
     public Skill() {}
 
-    public Skill(String description, List<Job> jobs) {
+    public Skill(String description) {
         super();
         this.description = description;
-        this.jobs = jobs;
+//        this.jobs = jobs;
     }
 
 
     public List<Job> getJobs() {
         return jobs;
     }
-
-    public void setJobs(List<Job> jobs) {
-        this.jobs = jobs;
-    }
-
-
 
     public String getDescription() {
         return description;
